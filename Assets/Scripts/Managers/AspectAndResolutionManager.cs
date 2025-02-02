@@ -7,6 +7,10 @@ public class AspectAndResolutionManager : MonoBehaviour
 
     void Start()
     {
+        // If running as a WebGL build, do nothing.
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            return;
+
         mainCamera = Camera.main;
 
         Screen.fullScreen = !Screen.fullScreen;
@@ -23,11 +27,15 @@ public class AspectAndResolutionManager : MonoBehaviour
             Screen.SetResolution(1280, 720, false);
         }
 
-        //AdjustAspect();
+        // Optionally call AdjustAspect() here if needed.
+        // AdjustAspect();
     }
 
     void Update()
     {
+        // If running as a WebGL build, do nothing.
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            return;
 
         if (Input.GetKeyDown(KeyCode.F11))
         {
@@ -62,30 +70,24 @@ public class AspectAndResolutionManager : MonoBehaviour
     {
         float windowAspect = (float)Screen.width / (float)Screen.height;
         float scaleHeight = windowAspect / targetAspect;
+        Rect rect = mainCamera.rect;
 
         if (scaleHeight < 1.0f)
         {
-            Rect rect = mainCamera.rect;
-
             rect.width = 1.0f;
             rect.height = scaleHeight;
             rect.x = 0;
             rect.y = (1.0f - scaleHeight) / 2.0f;
-
-            mainCamera.rect = rect;
         }
         else
         {
             float scaleWidth = 1.0f / scaleHeight;
-
-            Rect rect = mainCamera.rect;
-
             rect.width = scaleWidth;
             rect.height = 1.0f;
             rect.x = (1.0f - scaleWidth) / 2.0f;
             rect.y = 0;
-
-            mainCamera.rect = rect;
         }
+
+        mainCamera.rect = rect;
     }
 }

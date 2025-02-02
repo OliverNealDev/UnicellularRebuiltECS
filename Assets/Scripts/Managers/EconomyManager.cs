@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -125,9 +126,213 @@ public class EconomyManager : MonoBehaviour
         UpgradeOrangeDMGCost = UpgradeOrangeMaxHPCost = UpgradeOrangeSpawnLvCost =
         UpgradeOrangeElderCost = UpgradeOrangeShinyCost = UpgradeOrangeKingCost = 10;
 
+        LoadData();
+        InvokeRepeating("SaveData", 1, 60);
+        
         Invoke("UpdateSoulTextCall", 0.25f);
     }
+    
+    void OnApplicationQuit()
+    {
+        // Save data when the application quits.
+        SaveData();
+    }
 
+    // --- Save Data ---
+    public void SaveData()
+    {
+        EconomyData data = new EconomyData();
+        data.UniCoins = this.UniCoins;
+        data.SpecialUniCoins = this.SpecialUniCoins;
+        
+        data.TargetBlueUnicellPopulation = this.TargetBlueUnicellPopulation;
+        data.TargetPinkUnicellPopulation = this.TargetPinkUnicellPopulation;
+        data.TargetYellowUnicellPopulation = this.TargetYellowUnicellPopulation;
+        data.TargetGreenUnicellPopulation = this.TargetGreenUnicellPopulation;
+        data.TargetPurpleUnicellPopulation = this.TargetPurpleUnicellPopulation;
+        data.TargetRedUnicellPopulation = this.TargetRedUnicellPopulation;
+        data.TargetOrangeUnicellPopulation = this.TargetOrangeUnicellPopulation;
+        
+        data.BlueUnicellCost = this.BlueUnicellCost;
+        data.PinkUnicellCost = this.PinkUnicellCost;
+        data.YellowUnicellCost = this.YellowUnicellCost;
+        data.GreenUnicellCost = this.GreenUnicellCost;
+        data.PurpleUnicellCost = this.PurpleUnicellCost;
+        data.RedUnicellCost = this.RedUnicellCost;
+        data.OrangeUnicellCost = this.OrangeUnicellCost;
+        
+        data.UnlockNewUnicellCost = this.UnlockNewUnicellCost;
+        data.UnlockOrangeUnicellCost = this.UnlockOrangeUnicellCost;
+        
+        data.BioUpgradeEvoCost = this.BioUpgradeEvoCost;
+        
+        data.UpgradeBlueDMGCost = this.UpgradeBlueDMGCost;
+        data.UpgradeBlueMaxHPCost = this.UpgradeBlueMaxHPCost;
+        data.UpgradeBlueSpawnLvCost = this.UpgradeBlueSpawnLvCost;
+        data.UpgradeBlueElderCost = this.UpgradeBlueElderCost;
+        data.UpgradeBlueShinyCost = this.UpgradeBlueShinyCost;
+        data.UpgradeBlueKingCost = this.UpgradeBlueKingCost;
+        
+        data.UpgradePinkDMGCost = this.UpgradePinkDMGCost;
+        data.UpgradePinkMaxHPCost = this.UpgradePinkMaxHPCost;
+        data.UpgradePinkSpawnLvCost = this.UpgradePinkSpawnLvCost;
+        data.UpgradePinkElderCost = this.UpgradePinkElderCost;
+        data.UpgradePinkShinyCost = this.UpgradePinkShinyCost;
+        data.UpgradePinkKingCost = this.UpgradePinkKingCost;
+        
+        data.UpgradeYellowDMGCost = this.UpgradeYellowDMGCost;
+        data.UpgradeYellowMaxHPCost = this.UpgradeYellowMaxHPCost;
+        data.UpgradeYellowSpawnLvCost = this.UpgradeYellowSpawnLvCost;
+        data.UpgradeYellowElderCost = this.UpgradeYellowElderCost;
+        data.UpgradeYellowShinyCost = this.UpgradeYellowShinyCost;
+        data.UpgradeYellowKingCost = this.UpgradeYellowKingCost;
+        
+        data.UpgradeGreenDMGCost = this.UpgradeGreenDMGCost;
+        data.UpgradeGreenMaxHPCost = this.UpgradeGreenMaxHPCost;
+        data.UpgradeGreenSpawnLvCost = this.UpgradeGreenSpawnLvCost;
+        data.UpgradeGreenElderCost = this.UpgradeGreenElderCost;
+        data.UpgradeGreenShinyCost = this.UpgradeGreenShinyCost;
+        data.UpgradeGreenKingCost = this.UpgradeGreenKingCost;
+        
+        data.UpgradePurpleDMGCost = this.UpgradePurpleDMGCost;
+        data.UpgradePurpleMaxHPCost = this.UpgradePurpleMaxHPCost;
+        data.UpgradePurpleSpawnLvCost = this.UpgradePurpleSpawnLvCost;
+        data.UpgradePurpleElderCost = this.UpgradePurpleElderCost;
+        data.UpgradePurpleShinyCost = this.UpgradePurpleShinyCost;
+        data.UpgradePurpleKingCost = this.UpgradePurpleKingCost;
+        
+        data.UpgradeRedDMGCost = this.UpgradeRedDMGCost;
+        data.UpgradeRedMaxHPCost = this.UpgradeRedMaxHPCost;
+        data.UpgradeRedSpawnLvCost = this.UpgradeRedSpawnLvCost;
+        data.UpgradeRedElderCost = this.UpgradeRedElderCost;
+        data.UpgradeRedShinyCost = this.UpgradeRedShinyCost;
+        data.UpgradeRedKingCost = this.UpgradeRedKingCost;
+        
+        data.UpgradeOrangeDMGCost = this.UpgradeOrangeDMGCost;
+        data.UpgradeOrangeMaxHPCost = this.UpgradeOrangeMaxHPCost;
+        data.UpgradeOrangeSpawnLvCost = this.UpgradeOrangeSpawnLvCost;
+        data.UpgradeOrangeElderCost = this.UpgradeOrangeElderCost;
+        data.UpgradeOrangeShinyCost = this.UpgradeOrangeShinyCost;
+        data.UpgradeOrangeKingCost = this.UpgradeOrangeKingCost;
+        
+        data.BlueSouls = this.BlueSouls;
+        data.PinkSouls = this.PinkSouls;
+        data.YellowSouls = this.YellowSouls;
+        data.GreenSouls = this.GreenSouls;
+        data.PurpleSouls = this.PurpleSouls;
+        data.RedSouls = this.RedSouls;
+        data.OrangeSouls = this.OrangeSouls;
+        
+        // Convert our data to JSON (the second parameter 'true' is for pretty printing)
+        string json = JsonUtility.ToJson(data, true);
+        
+        // Write the JSON string to a file.
+        string path = Application.persistentDataPath + "/economySave.json";
+        File.WriteAllText(path, json);
+        
+        Debug.Log("Saved Economy Data to: " + path);
+    }
+    
+    // --- Load Data ---
+    public void LoadData()
+    {
+        string path = Application.persistentDataPath + "/economySave.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            EconomyData data = JsonUtility.FromJson<EconomyData>(json);
+            
+            this.UniCoins = data.UniCoins;
+            this.SpecialUniCoins = data.SpecialUniCoins;
+            
+            this.TargetBlueUnicellPopulation = data.TargetBlueUnicellPopulation;
+            this.TargetPinkUnicellPopulation = data.TargetPinkUnicellPopulation;
+            this.TargetYellowUnicellPopulation = data.TargetYellowUnicellPopulation;
+            this.TargetGreenUnicellPopulation = data.TargetGreenUnicellPopulation;
+            this.TargetPurpleUnicellPopulation = data.TargetPurpleUnicellPopulation;
+            this.TargetRedUnicellPopulation = data.TargetRedUnicellPopulation;
+            this.TargetOrangeUnicellPopulation = data.TargetOrangeUnicellPopulation;
+            
+            this.BlueUnicellCost = data.BlueUnicellCost;
+            this.PinkUnicellCost = data.PinkUnicellCost;
+            this.YellowUnicellCost = data.YellowUnicellCost;
+            this.GreenUnicellCost = data.GreenUnicellCost;
+            this.PurpleUnicellCost = data.PurpleUnicellCost;
+            this.RedUnicellCost = data.RedUnicellCost;
+            this.OrangeUnicellCost = data.OrangeUnicellCost;
+            
+            this.UnlockNewUnicellCost = data.UnlockNewUnicellCost;
+            this.UnlockOrangeUnicellCost = data.UnlockOrangeUnicellCost;
+            
+            this.BioUpgradeEvoCost = data.BioUpgradeEvoCost;
+            
+            this.UpgradeBlueDMGCost = data.UpgradeBlueDMGCost;
+            this.UpgradeBlueMaxHPCost = data.UpgradeBlueMaxHPCost;
+            this.UpgradeBlueSpawnLvCost = data.UpgradeBlueSpawnLvCost;
+            this.UpgradeBlueElderCost = data.UpgradeBlueElderCost;
+            this.UpgradeBlueShinyCost = data.UpgradeBlueShinyCost;
+            this.UpgradeBlueKingCost = data.UpgradeBlueKingCost;
+            
+            this.UpgradePinkDMGCost = data.UpgradePinkDMGCost;
+            this.UpgradePinkMaxHPCost = data.UpgradePinkMaxHPCost;
+            this.UpgradePinkSpawnLvCost = data.UpgradePinkSpawnLvCost;
+            this.UpgradePinkElderCost = data.UpgradePinkElderCost;
+            this.UpgradePinkShinyCost = data.UpgradePinkShinyCost;
+            this.UpgradePinkKingCost = data.UpgradePinkKingCost;
+            
+            this.UpgradeYellowDMGCost = data.UpgradeYellowDMGCost;
+            this.UpgradeYellowMaxHPCost = data.UpgradeYellowMaxHPCost;
+            this.UpgradeYellowSpawnLvCost = data.UpgradeYellowSpawnLvCost;
+            this.UpgradeYellowElderCost = data.UpgradeYellowElderCost;
+            this.UpgradeYellowShinyCost = data.UpgradeYellowShinyCost;
+            this.UpgradeYellowKingCost = data.UpgradeYellowKingCost;
+            
+            this.UpgradeGreenDMGCost = data.UpgradeGreenDMGCost;
+            this.UpgradeGreenMaxHPCost = data.UpgradeGreenMaxHPCost;
+            this.UpgradeGreenSpawnLvCost = data.UpgradeGreenSpawnLvCost;
+            this.UpgradeGreenElderCost = data.UpgradeGreenElderCost;
+            this.UpgradeGreenShinyCost = data.UpgradeGreenShinyCost;
+            this.UpgradeGreenKingCost = data.UpgradeGreenKingCost;
+            
+            this.UpgradePurpleDMGCost = data.UpgradePurpleDMGCost;
+            this.UpgradePurpleMaxHPCost = data.UpgradePurpleMaxHPCost;
+            this.UpgradePurpleSpawnLvCost = data.UpgradePurpleSpawnLvCost;
+            this.UpgradePurpleElderCost = data.UpgradePurpleElderCost;
+            this.UpgradePurpleShinyCost = data.UpgradePurpleShinyCost;
+            this.UpgradePurpleKingCost = data.UpgradePurpleKingCost;
+            
+            this.UpgradeRedDMGCost = data.UpgradeRedDMGCost;
+            this.UpgradeRedMaxHPCost = data.UpgradeRedMaxHPCost;
+            this.UpgradeRedSpawnLvCost = data.UpgradeRedSpawnLvCost;
+            this.UpgradeRedElderCost = data.UpgradeRedElderCost;
+            this.UpgradeRedShinyCost = data.UpgradeRedShinyCost;
+            this.UpgradeRedKingCost = data.UpgradeRedKingCost;
+            
+            this.UpgradeOrangeDMGCost = data.UpgradeOrangeDMGCost;
+            this.UpgradeOrangeMaxHPCost = data.UpgradeOrangeMaxHPCost;
+            this.UpgradeOrangeSpawnLvCost = data.UpgradeOrangeSpawnLvCost;
+            this.UpgradeOrangeElderCost = data.UpgradeOrangeElderCost;
+            this.UpgradeOrangeShinyCost = data.UpgradeOrangeShinyCost;
+            this.UpgradeOrangeKingCost = data.UpgradeOrangeKingCost;
+            
+            this.BlueSouls = data.BlueSouls;
+            this.PinkSouls = data.PinkSouls;
+            this.YellowSouls = data.YellowSouls;
+            this.GreenSouls = data.GreenSouls;
+            this.PurpleSouls = data.PurpleSouls;
+            this.RedSouls = data.RedSouls;
+            this.OrangeSouls = data.OrangeSouls;
+            
+            Debug.Log("Loaded Economy Data from: " + path);
+            // You can update any UI elements here if necessary.
+            TextManager.Instance.UpdateSoulText(BlueSouls, PinkSouls);
+        }
+        else
+        {
+            Debug.Log("Save file not found at: " + path);
+        }
+    }
+    
     void UpdateSoulTextCall()
     {
         TextManager.Instance.UpdateSoulText(BlueSouls, PinkSouls);

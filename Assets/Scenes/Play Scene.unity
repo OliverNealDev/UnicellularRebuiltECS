@@ -1586,7 +1586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &118383448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2689,7 +2689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &248162609
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   GreenUnicellCardImage: {fileID: 21300000, guid: fa974fb23756fd84aa2af331cdd13458, type: 3}
   PurpleUnicellCardImage: {fileID: 21300000, guid: e4300d4b773099e40bc0e974d0f18d5d, type: 3}
   RedUnicellCardImage: {fileID: 21300000, guid: 0a8dd99a2918d4a4db6e9dc1455fe121, type: 3}
-  OrangeUnicellCardImage: {fileID: 21300000, guid: 3cc75b9e95e45bc489401caccbd9152a, type: 3}
+  OrangeUnicellCardImage: {fileID: 21300000, guid: 43d6d852fa34790468778a6bb2acfe9f, type: 3}
   CoinObject: {fileID: 674998056}
   CoinSprite: {fileID: 0}
   Coin: {fileID: 21300000, guid: fc72821a6859b9543b0e31eabb926448, type: 3}
@@ -3429,7 +3429,7 @@ MonoBehaviour:
   RedUnicellBackground: {fileID: 271178162}
   OrangeUnicellPurchaseButton: {fileID: 248162610}
   OrangeUnicellPurchaseCost: {fileID: 1743319022}
-  OrangeUnicellTexture: {fileID: 21300000, guid: dbd1476323d3fe94f84a05d87ad858cb, type: 3}
+  OrangeUnicellTexture: {fileID: 21300000, guid: 43d6d852fa34790468778a6bb2acfe9f, type: 3}
   OrangeUnicell: {fileID: 1271635862}
   OrangeUnicellBackground: {fileID: 571473634}
   entityMananger: {fileID: 449527688}
@@ -4228,7 +4228,7 @@ MonoBehaviour:
   YellowShiny: {fileID: 21300000, guid: 11f4862508bac514da47441db8a3c5d5, type: 3}
   GreenShiny: {fileID: 21300000, guid: 38066cac19ca9d34e9f14da09ffe2787, type: 3}
   PurpleShiny: {fileID: 21300000, guid: a1c9f71400f940a408ec90f1fde43520, type: 3}
-  OrangeShiny: {fileID: 21300000, guid: ac9d40a7c8feccd459f8bbcaa782030d, type: 3}
+  OrangeShiny: {fileID: 21300000, guid: ec969651ef59e644e835f95910479af1, type: 3}
   BlueDamageStatMultiplier: 1
   BlueMaxHPStatMultiplier: 1
   BlueSpawnLvStat: 1
@@ -5589,7 +5589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dbd1476323d3fe94f84a05d87ad858cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43d6d852fa34790468778a6bb2acfe9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6863,7 +6863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dbd1476323d3fe94f84a05d87ad858cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43d6d852fa34790468778a6bb2acfe9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11946,7 +11946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dbd1476323d3fe94f84a05d87ad858cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43d6d852fa34790468778a6bb2acfe9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17961,7 +17961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1874963524
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19100,7 +19100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1987005520
 RectTransform:
   m_ObjectHideFlags: 0

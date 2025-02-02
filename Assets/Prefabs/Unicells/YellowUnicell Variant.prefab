@@ -106,6 +106,9 @@ MonoBehaviour:
   MaxHealthMutation: 0
   SpeedMutation: 0
   ProximityRadiusMutation: 0
+  isElderUnicell: 0
+  isShinyUnicell: 0
+  isKingUnicell: 0
   PregnantTimer: 0
   PregnantTimerThreshold: 0
   isAtRandomLocation: 0
