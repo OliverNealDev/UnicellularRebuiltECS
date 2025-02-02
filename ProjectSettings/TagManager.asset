@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Unicell
+  - Food
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Food
+    uniqueID: 2575114127
+    locked: 0
+  - name: PinkUnicells
+    uniqueID: 449914861
+    locked: 0
+  - name: BlueUnicells
+    uniqueID: 4057550405
+    locked: 0
+  - name: YellowUnicells
+    uniqueID: 2891517085
+    locked: 0
+  - name: AboveEntities
+    uniqueID: 4107120867
+    locked: 0
+  m_RenderingLayers:
+  - Default

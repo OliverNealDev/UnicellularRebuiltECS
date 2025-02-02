@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4926073131928042971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4337707072839710035, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e4300d4b773099e40bc0e974d0f18d5d, type: 3}
+    - target: {fileID: 4337707072839710035, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337707072839710035, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4337707072839710035, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378599797975859874, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564456415724679822, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      propertyPath: m_Name
+      value: PurpleUnicell Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8564456415724679822, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 111404300531803845}
+  m_SourcePrefab: {fileID: 100100000, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+--- !u!1 &3641128216124395349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8564456415724679822, guid: 386f7863a1087e14bb15e263592c384e, type: 3}
+  m_PrefabInstance: {fileID: 4926073131928042971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &111404300531803845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641128216124395349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1128d507d3f4fd408b8c9f2035c0317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistent: 0
+  DamageMutation: 0
+  MaxHealthMutation: 0
+  SpeedMutation: 0
+  ProximityRadiusMutation: 0
+  PregnantTimer: 0
+  PregnantTimerThreshold: 0
+  isAtRandomLocation: 0
+  RandomLocation: {x: 0, y: 0}
+  isHungry: 0
+  isColliding: 0
+  collidingUnicellClass: {fileID: 0}
+  collidingFoodClass: {fileID: 0}
+  isCollisionWithUnicell: 0
+  isClickedOn: 0
+  isHovered: 0
+  isLabelled: 0
+  labelUpdateRequested: 0
