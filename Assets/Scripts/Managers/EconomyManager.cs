@@ -91,6 +91,9 @@ public class EconomyManager : MonoBehaviour
     public long OrangeSouls { get; private set; }
 
     [SerializeField] private EntityManager entityManager;
+    [SerializeField] private PurchasePanelManager purchasePanelManager;
+    [SerializeField] private UpgradeMenuManager upgradeMenuManager;
+    [SerializeField] private BiolabMenuManager biolabMenuManager;
 
     void Start()
     {
@@ -127,9 +130,17 @@ public class EconomyManager : MonoBehaviour
         UpgradeOrangeElderCost = UpgradeOrangeShinyCost = UpgradeOrangeKingCost = 10;
 
         LoadData();
-        InvokeRepeating("SaveData", 1, 60);
+        InvokeRepeating("SaveData", 60, 60);
         
         Invoke("UpdateSoulTextCall", 0.25f);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Home) && Input.GetKeyDown(KeyCode.F3))
+        {
+            ResetData();
+        }
     }
     
     void OnApplicationQuit()
@@ -222,6 +233,71 @@ public class EconomyManager : MonoBehaviour
         data.PurpleSouls = this.PurpleSouls;
         data.RedSouls = this.RedSouls;
         data.OrangeSouls = this.OrangeSouls;
+        
+        data.isBlueUnicellsUnlocked = purchasePanelManager.isBlueUnicellsUnlockedCheck();
+        data.isPinkUnicellsUnlocked = purchasePanelManager.isPinkUnicellsUnlockedCheck();
+        data.isYellowUnicellsUnlocked = purchasePanelManager.isYellowUnicellsUnlockedCheck();
+        data.isGreenUnicellsUnlocked = purchasePanelManager.isGreenUnicellsUnlockedCheck();
+        data.isPurpleUnicellsUnlocked = purchasePanelManager.isPurpleUnicellsUnlockedCheck();
+        data.isOrangeUnicellsUnlocked = purchasePanelManager.isOrangeUnicellsUnlockedCheck();
+
+        data.isBioDamageUnlocked = biolabMenuManager.isBioDamageUnlocked;
+        data.isBioMaxHealthUnlocked = biolabMenuManager.isBioMaxHealthUnlocked;
+        data.isBioSpawnLevelUnlocked = biolabMenuManager.isBioSpawnLevelUnlocked;
+        data.isBioElderUnlocked = biolabMenuManager.isBioElderUnlocked;
+        data.isBioShinyUnlocked = biolabMenuManager.isBioShinyUnlocked;
+        data.isBioKingUnlocked = biolabMenuManager.isBioKingUnlocked;
+
+        data.BlueDamageStatMultiplier = EntityManager.Instance.BlueDamageStatMultiplier;
+        data.BlueMaxHPStatMultiplier = EntityManager.Instance.BlueMaxHPStatMultiplier;
+        data.BlueSpawnLvStat = EntityManager.Instance.BlueSpawnLvStat;
+        data.BlueElderStatMultiplier = EntityManager.Instance.BlueElderStatMultiplier;
+        data.BlueShinyStatMultiplier = EntityManager.Instance.BlueShinyStatMultiplier;
+        data.BlueKingStatMultiplier = EntityManager.Instance.BlueKingStatMultiplier;
+
+        data.PinkDamageStatMultiplier = EntityManager.Instance.PinkDamageStatMultiplier;
+        data.PinkMaxHPStatMultiplier = EntityManager.Instance.PinkMaxHPStatMultiplier;
+        data.PinkSpawnLvStat = EntityManager.Instance.PinkSpawnLvStat;
+        data.PinkElderStatMultiplier = EntityManager.Instance.PinkElderStatMultiplier;
+        data.PinkShinyStatMultiplier = EntityManager.Instance.PinkShinyStatMultiplier;
+        data.PinkKingStatMultiplier = EntityManager.Instance.PinkKingStatMultiplier;
+
+        data.YellowDamageStatMultiplier = EntityManager.Instance.YellowDamageStatMultiplier;
+        data.YellowMaxHPStatMultiplier = EntityManager.Instance.YellowMaxHPStatMultiplier;
+        data.YellowSpawnLvStat = EntityManager.Instance.YellowSpawnLvStat;
+        data.YellowElderStatMultiplier = EntityManager.Instance.YellowElderStatMultiplier;
+        data.YellowShinyStatMultiplier = EntityManager.Instance.YellowShinyStatMultiplier;
+        data.YellowKingStatMultiplier = EntityManager.Instance.YellowKingStatMultiplier;
+
+        data.GreenDamageStatMultiplier = EntityManager.Instance.GreenDamageStatMultiplier;
+        data.GreenMaxHPStatMultiplier = EntityManager.Instance.GreenMaxHPStatMultiplier;
+        data.GreenSpawnLvStat = EntityManager.Instance.GreenSpawnLvStat;
+        data.GreenElderStatMultiplier = EntityManager.Instance.GreenElderStatMultiplier;
+        data.GreenShinyStatMultiplier = EntityManager.Instance.GreenShinyStatMultiplier;
+        data.GreenKingStatMultiplier = EntityManager.Instance.GreenKingStatMultiplier;
+
+        data.PurpleDamageStatMultiplier = EntityManager.Instance.PurpleDamageStatMultiplier;
+        data.PurpleMaxHPStatMultiplier = EntityManager.Instance.PurpleMaxHPStatMultiplier;
+        data.PurpleSpawnLvStat = EntityManager.Instance.PurpleSpawnLvStat;
+        data.PurpleElderStatMultiplier = EntityManager.Instance.PurpleElderStatMultiplier;
+        data.PurpleShinyStatMultiplier = EntityManager.Instance.PurpleShinyStatMultiplier;
+        data.PurpleKingStatMultiplier = EntityManager.Instance.PurpleKingStatMultiplier;
+
+        data.RedDamageStatMultiplier = EntityManager.Instance.RedDamageStatMultiplier;
+        data.RedMaxHPStatMultiplier = EntityManager.Instance.RedMaxHPStatMultiplier;
+        data.RedSpawnLvStat = EntityManager.Instance.RedSpawnLvStat;
+        data.RedElderStatMultiplier = EntityManager.Instance.RedElderStatMultiplier;
+        data.RedShinyStatMultiplier = EntityManager.Instance.RedShinyStatMultiplier;
+        data.RedKingStatMultiplier = EntityManager.Instance.RedKingStatMultiplier;
+
+        data.OrangeDamageStatMultiplier = EntityManager.Instance.OrangeDamageStatMultiplier;
+        data.OrangeMaxHPStatMultiplier = EntityManager.Instance.OrangeMaxHPStatMultiplier;
+        data.OrangeSpawnLvStat = EntityManager.Instance.OrangeSpawnLvStat;
+        data.OrangeElderStatMultiplier = EntityManager.Instance.OrangeElderStatMultiplier;
+        data.OrangeShinyStatMultiplier = EntityManager.Instance.OrangeShinyStatMultiplier;
+        data.OrangeKingStatMultiplier = EntityManager.Instance.OrangeKingStatMultiplier;
+
+
         
         // Convert our data to JSON (the second parameter 'true' is for pretty printing)
         string json = JsonUtility.ToJson(data, true);
@@ -323,6 +399,74 @@ public class EconomyManager : MonoBehaviour
             this.RedSouls = data.RedSouls;
             this.OrangeSouls = data.OrangeSouls;
             
+            purchasePanelManager.AssignIsUnlockedBools(
+                data.isBlueUnicellsUnlocked, 
+                data.isPinkUnicellsUnlocked, 
+                data.isYellowUnicellsUnlocked, 
+                data.isGreenUnicellsUnlocked, 
+                data.isPurpleUnicellsUnlocked, 
+                data.isOrangeUnicellsUnlocked
+                );
+            
+            biolabMenuManager.SetUnlockedStates(
+                data.isBioDamageUnlocked,
+                data.isBioMaxHealthUnlocked,
+                data.isBioSpawnLevelUnlocked,
+                data.isBioElderUnlocked,
+                data.isBioShinyUnlocked,
+                data.isBioKingUnlocked
+            );
+
+            EntityManager.Instance.BlueDamageStatMultiplier = data.BlueDamageStatMultiplier;
+            EntityManager.Instance.BlueMaxHPStatMultiplier = data.BlueMaxHPStatMultiplier;
+            EntityManager.Instance.BlueSpawnLvStat = data.BlueSpawnLvStat;
+            EntityManager.Instance.BlueElderStatMultiplier = data.BlueElderStatMultiplier;
+            EntityManager.Instance.BlueShinyStatMultiplier = data.BlueShinyStatMultiplier;
+            EntityManager.Instance.BlueKingStatMultiplier = data.BlueKingStatMultiplier;
+
+            EntityManager.Instance.PinkDamageStatMultiplier = data.PinkDamageStatMultiplier;
+            EntityManager.Instance.PinkMaxHPStatMultiplier = data.PinkMaxHPStatMultiplier;
+            EntityManager.Instance.PinkSpawnLvStat = data.PinkSpawnLvStat;
+            EntityManager.Instance.PinkElderStatMultiplier = data.PinkElderStatMultiplier;
+            EntityManager.Instance.PinkShinyStatMultiplier = data.PinkShinyStatMultiplier;
+            EntityManager.Instance.PinkKingStatMultiplier = data.PinkKingStatMultiplier;
+
+            EntityManager.Instance.YellowDamageStatMultiplier = data.YellowDamageStatMultiplier;
+            EntityManager.Instance.YellowMaxHPStatMultiplier = data.YellowMaxHPStatMultiplier;
+            EntityManager.Instance.YellowSpawnLvStat = data.YellowSpawnLvStat;
+            EntityManager.Instance.YellowElderStatMultiplier = data.YellowElderStatMultiplier;
+            EntityManager.Instance.YellowShinyStatMultiplier = data.YellowShinyStatMultiplier;
+            EntityManager.Instance.YellowKingStatMultiplier = data.YellowKingStatMultiplier;
+
+            EntityManager.Instance.GreenDamageStatMultiplier = data.GreenDamageStatMultiplier;
+            EntityManager.Instance.GreenMaxHPStatMultiplier = data.GreenMaxHPStatMultiplier;
+            EntityManager.Instance.GreenSpawnLvStat = data.GreenSpawnLvStat;
+            EntityManager.Instance.GreenElderStatMultiplier = data.GreenElderStatMultiplier;
+            EntityManager.Instance.GreenShinyStatMultiplier = data.GreenShinyStatMultiplier;
+            EntityManager.Instance.GreenKingStatMultiplier = data.GreenKingStatMultiplier;
+
+            EntityManager.Instance.PurpleDamageStatMultiplier = data.PurpleDamageStatMultiplier;
+            EntityManager.Instance.PurpleMaxHPStatMultiplier = data.PurpleMaxHPStatMultiplier;
+            EntityManager.Instance.PurpleSpawnLvStat = data.PurpleSpawnLvStat;
+            EntityManager.Instance.PurpleElderStatMultiplier = data.PurpleElderStatMultiplier;
+            EntityManager.Instance.PurpleShinyStatMultiplier = data.PurpleShinyStatMultiplier;
+            EntityManager.Instance.PurpleKingStatMultiplier = data.PurpleKingStatMultiplier;
+
+            EntityManager.Instance.RedDamageStatMultiplier = data.RedDamageStatMultiplier;
+            EntityManager.Instance.RedMaxHPStatMultiplier = data.RedMaxHPStatMultiplier;
+            EntityManager.Instance.RedSpawnLvStat = data.RedSpawnLvStat;
+            EntityManager.Instance.RedElderStatMultiplier = data.RedElderStatMultiplier;
+            EntityManager.Instance.RedShinyStatMultiplier = data.RedShinyStatMultiplier;
+            EntityManager.Instance.RedKingStatMultiplier = data.RedKingStatMultiplier;
+
+            EntityManager.Instance.OrangeDamageStatMultiplier = data.OrangeDamageStatMultiplier;
+            EntityManager.Instance.OrangeMaxHPStatMultiplier = data.OrangeMaxHPStatMultiplier;
+            EntityManager.Instance.OrangeSpawnLvStat = data.OrangeSpawnLvStat;
+            EntityManager.Instance.OrangeElderStatMultiplier = data.OrangeElderStatMultiplier;
+            EntityManager.Instance.OrangeShinyStatMultiplier = data.OrangeShinyStatMultiplier;
+            EntityManager.Instance.OrangeKingStatMultiplier = data.OrangeKingStatMultiplier;
+
+            
             Debug.Log("Loaded Economy Data from: " + path);
             // You can update any UI elements here if necessary.
             TextManager.Instance.UpdateSoulText(BlueSouls, PinkSouls);
@@ -331,6 +475,56 @@ public class EconomyManager : MonoBehaviour
         {
             Debug.Log("Save file not found at: " + path);
         }
+    }
+    
+    /// <summary>
+    /// Resets all economy values to their default state and saves the default data.
+    /// </summary>
+    public void ResetData()
+    {
+        UniCoins = 50;
+        BlueSouls = PinkSouls = YellowSouls = GreenSouls = PurpleSouls = RedSouls = OrangeSouls = 0;
+        
+        UnlockNewUnicellCost = 10;
+        UnlockOrangeUnicellCost = 10000;
+        
+        TargetBlueUnicellPopulation = TargetPinkUnicellPopulation = TargetYellowUnicellPopulation =
+            TargetGreenUnicellPopulation = TargetPurpleUnicellPopulation = TargetRedUnicellPopulation =
+            TargetOrangeUnicellPopulation = 0;
+        
+        BioUpgradeEvoCost = 10;
+        
+        UpgradeBlueDMGCost = UpgradeBlueMaxHPCost = UpgradeBlueSpawnLvCost =
+            UpgradeBlueElderCost = UpgradeBlueShinyCost = UpgradeBlueKingCost = 10;
+        
+        UpgradePinkDMGCost = UpgradePinkMaxHPCost = UpgradePinkSpawnLvCost =
+            UpgradePinkElderCost = UpgradePinkShinyCost = UpgradePinkKingCost = 10;
+        
+        UpgradeYellowDMGCost = UpgradeYellowMaxHPCost = UpgradeYellowSpawnLvCost =
+            UpgradeYellowElderCost = UpgradeYellowShinyCost = UpgradeYellowKingCost = 10;
+        
+        UpgradeGreenDMGCost = UpgradeGreenMaxHPCost = UpgradeGreenSpawnLvCost =
+            UpgradeGreenElderCost = UpgradeGreenShinyCost = UpgradeGreenKingCost = 10;
+        
+        UpgradePurpleDMGCost = UpgradePurpleMaxHPCost = UpgradePurpleSpawnLvCost =
+            UpgradePurpleElderCost = UpgradePurpleShinyCost = UpgradePurpleKingCost = 10;
+        
+        UpgradeRedDMGCost = UpgradeRedMaxHPCost = UpgradeRedSpawnLvCost =
+            UpgradeRedElderCost = UpgradeRedShinyCost = UpgradeRedKingCost = 10;
+        
+        UpgradeOrangeDMGCost = UpgradeOrangeMaxHPCost = UpgradeOrangeSpawnLvCost =
+            UpgradeOrangeElderCost = UpgradeOrangeShinyCost = UpgradeOrangeKingCost = 10;
+        
+        // Reset flags via other managers.
+        purchasePanelManager.ResetUnlocks();
+        //upgradeMenuManager.ResetUnlocks();
+        biolabMenuManager.SetUnlockedStates(false, false, false, false, false, false);
+        
+        TextManager.Instance.UpdateSoulText(BlueSouls, PinkSouls);
+        Debug.Log("Economy data has been reset to default.");
+        
+        // Save the default state.
+        SaveData();
     }
     
     void UpdateSoulTextCall()

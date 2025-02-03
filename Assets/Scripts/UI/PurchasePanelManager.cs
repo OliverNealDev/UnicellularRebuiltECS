@@ -73,7 +73,7 @@ public class PurchasePanelManager : MonoBehaviour
     private bool isPurchaseTrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         LogicTimer = 0;
         LogicTimerThreshold = 0.05f;
@@ -107,6 +107,124 @@ public class PurchasePanelManager : MonoBehaviour
 
         //EconomyManager economyManager;
     }
+
+    public bool isBlueUnicellsUnlockedCheck()
+    {
+        if (isBlueUnicellsUnlocked) return true;
+        return false;
+    }
+    public bool isPinkUnicellsUnlockedCheck()
+    {
+        if (isPinkUnicellsUnlocked) return true;
+        return false;
+    }
+    public bool isYellowUnicellsUnlockedCheck()
+    {
+        if (isYellowUnicellsUnlocked) return true;
+        return false;
+    }
+    public bool isGreenUnicellsUnlockedCheck()
+    {
+        if (isGreenUnicellsUnlocked) return true;
+        return false;
+    }
+    public bool isPurpleUnicellsUnlockedCheck()
+    {
+        if (isPurpleUnicellsUnlocked) return true;
+        return false;
+    }
+    public bool isOrangeUnicellsUnlockedCheck()
+    {
+        if (isOrangeUnicellsUnlocked) return true;
+        return false;
+    }
+
+    public void AssignIsUnlockedBools(bool blue, bool pink, bool yellow, bool green, bool purple, bool orange)
+    {
+        if (blue)
+        {
+            isBlueUnicellsUnlocked = true;
+            BlueUnicell.sprite = BlueUnicellTexture;
+            BlueUnicellBackground.sprite = BlueUnicellTexture;
+        }
+        else
+        {
+            /*BlueUnicell.sprite = Padlock;
+            BlueUnicellBackground.sprite = Padlock;*/
+        }
+
+        if (pink)
+        {
+            isPinkUnicellsUnlocked = true;
+            PinkUnicell.sprite = PinkUnicellTexture;
+            PinkUnicellBackground.sprite = PinkUnicellTexture;
+
+        }
+        else
+        {
+            //PinkUnicell.sprite = Padlock;
+            //PinkUnicellBackground.sprite = Padlock;
+        }
+
+        if (yellow)
+        {
+            isYellowUnicellsUnlocked = true;
+            YellowUnicell.sprite = YellowUnicellTexture;
+            YellowUnicellBackground.sprite = YellowUnicellTexture;
+        }
+        else
+        {
+            //YellowUnicell.sprite = Padlock;
+            //YellowUnicellBackground.sprite = Padlock;
+        }
+
+        if (green)
+        {
+            isGreenUnicellsUnlocked = true;
+            GreenUnicell.sprite = GreenUnicellTexture;
+            GreenUnicellBackground.sprite = GreenUnicellTexture;
+        }
+        else
+        {
+            //GreenUnicell.sprite = Padlock;
+            //GreenUnicellBackground.sprite = Padlock;
+        }
+
+        if (purple)
+        {
+            isPurpleUnicellsUnlocked = true;
+            PurpleUnicell.sprite = PurpleUnicellTexture;
+            PurpleUnicellBackground.sprite = PurpleUnicellTexture;
+        }
+        else
+        {
+            //PurpleUnicell.sprite = Padlock;
+            //PurpleUnicellBackground.sprite = Padlock;
+        }
+
+        if (orange)
+        {
+            isOrangeUnicellsUnlocked = true;
+            OrangeUnicell.sprite = OrangeUnicellTexture;
+            OrangeUnicellBackground.sprite = OrangeUnicellTexture;
+        }
+        else
+        {
+            //OrangeUnicell.sprite = Padlock;
+            //OrangeUnicellBackground.sprite = Padlock;
+        }
+    }
+
+    public void ResetUnlocks()
+    {
+        isBlueUnicellsUnlocked = false;
+        isPinkUnicellsUnlocked = false;
+        isYellowUnicellsUnlocked = false;
+        isGreenUnicellsUnlocked = false;
+        isOrangeUnicellsUnlocked = false;
+        isPurpleUnicellsUnlocked = false;
+    }
+    
 
     private void Update()
     {

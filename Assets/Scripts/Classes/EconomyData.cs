@@ -1,7 +1,10 @@
 using System;
-    
+
 [Serializable]
 public class EconomyData {
+    // New save version field.
+    public int saveVersion;
+
     public long UniCoins;
     public long SpecialUniCoins;
     
@@ -82,4 +85,70 @@ public class EconomyData {
     public long PurpleSouls;
     public long RedSouls;
     public long OrangeSouls;
+
+    // Additional flags from your other managers:
+    public bool isBlueUnicellsUnlocked;
+    public bool isPinkUnicellsUnlocked;
+    public bool isYellowUnicellsUnlocked;
+    public bool isGreenUnicellsUnlocked;
+    public bool isPurpleUnicellsUnlocked;
+    public bool isOrangeUnicellsUnlocked;
+    
+    public bool isBioDamageUnlocked;
+    public bool isBioMaxHealthUnlocked;
+    public bool isBioSpawnLevelUnlocked;
+    public bool isBioElderUnlocked;
+    public bool isBioShinyUnlocked;
+    public bool isBioKingUnlocked;
+    
+    // Upgrade Variables
+    public float BlueDamageStatMultiplier;
+    public float BlueMaxHPStatMultiplier;
+    public int BlueSpawnLvStat;
+    public float BlueElderStatMultiplier;
+    public float BlueShinyStatMultiplier;
+    public float BlueKingStatMultiplier;
+
+
+    public float PinkDamageStatMultiplier;
+    public float PinkMaxHPStatMultiplier;
+    public int PinkSpawnLvStat;
+    public float PinkElderStatMultiplier;
+    public float PinkShinyStatMultiplier;
+    public float PinkKingStatMultiplier;
+
+    public float YellowDamageStatMultiplier;
+    public float YellowMaxHPStatMultiplier;
+    public int YellowSpawnLvStat;
+    public float YellowElderStatMultiplier;
+    public float YellowShinyStatMultiplier;
+    public float YellowKingStatMultiplier;
+
+    public float GreenDamageStatMultiplier;
+    public float GreenMaxHPStatMultiplier;
+    public int GreenSpawnLvStat;
+    public float GreenElderStatMultiplier;
+    public float GreenShinyStatMultiplier;
+    public float GreenKingStatMultiplier;
+
+    public float PurpleDamageStatMultiplier;
+    public float PurpleMaxHPStatMultiplier;
+    public int PurpleSpawnLvStat;
+    public float PurpleElderStatMultiplier;
+    public float PurpleShinyStatMultiplier;
+    public float PurpleKingStatMultiplier;
+
+    public float RedDamageStatMultiplier;
+    public float RedMaxHPStatMultiplier;
+    public int RedSpawnLvStat;
+    public float RedElderStatMultiplier;
+    public float RedShinyStatMultiplier;
+    public float RedKingStatMultiplier;
+
+    public float OrangeDamageStatMultiplier;
+    public float OrangeMaxHPStatMultiplier;
+    public int OrangeSpawnLvStat;
+    public float OrangeElderStatMultiplier;
+    public float OrangeShinyStatMultiplier;
+    public float OrangeKingStatMultiplier;
 }

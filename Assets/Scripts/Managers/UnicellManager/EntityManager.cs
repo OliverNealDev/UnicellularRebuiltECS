@@ -9,6 +9,8 @@ using Unity.Entities.UniversalDelegates;
 
 public class EntityManager : MonoBehaviour
 {
+    public static EntityManager Instance;
+    
     // Variable Declarations
     #region VariableDeclarations
     // Unicell Prefabs
@@ -116,55 +118,55 @@ public class EntityManager : MonoBehaviour
     [SerializeField] private Sprite OrangeShiny;
 
     // Upgrade Variables
-    [SerializeField] private float BlueDamageStatMultiplier;
-    [SerializeField] private float BlueMaxHPStatMultiplier;
-    [SerializeField] private int BlueSpawnLvStat;
-    [SerializeField] private float BlueElderStatMultiplier;
-    [SerializeField] private float BlueShinyStatMultiplier;
-    [SerializeField] private float BlueKingStatMultiplier;
+    [SerializeField] public float BlueDamageStatMultiplier;
+    [SerializeField] public float BlueMaxHPStatMultiplier;
+    [SerializeField] public int BlueSpawnLvStat;
+    [SerializeField] public float BlueElderStatMultiplier;
+    [SerializeField] public float BlueShinyStatMultiplier;
+    [SerializeField] public float BlueKingStatMultiplier;
 
 
-    [SerializeField] private float PinkDamageStatMultiplier;
-    [SerializeField] private float PinkMaxHPStatMultiplier;
-    [SerializeField] private int PinkSpawnLvStat;
-    [SerializeField] private float PinkElderStatMultiplier;
-    [SerializeField] private float PinkShinyStatMultiplier;
-    [SerializeField] private float PinkKingStatMultiplier;
+    [SerializeField] public float PinkDamageStatMultiplier;
+    [SerializeField] public float PinkMaxHPStatMultiplier;
+    [SerializeField] public int PinkSpawnLvStat;
+    [SerializeField] public float PinkElderStatMultiplier;
+    [SerializeField] public float PinkShinyStatMultiplier;
+    [SerializeField] public float PinkKingStatMultiplier;
 
-    [SerializeField] private float YellowDamageStatMultiplier;
-    [SerializeField] private float YellowMaxHPStatMultiplier;
-    [SerializeField] private int YellowSpawnLvStat;
-    [SerializeField] private float YellowElderStatMultiplier;
-    [SerializeField] private float YellowShinyStatMultiplier;
-    [SerializeField] private float YellowKingStatMultiplier;
+    [SerializeField] public float YellowDamageStatMultiplier;
+    [SerializeField] public float YellowMaxHPStatMultiplier;
+    [SerializeField] public int YellowSpawnLvStat;
+    [SerializeField] public float YellowElderStatMultiplier;
+    [SerializeField] public float YellowShinyStatMultiplier;
+    [SerializeField] public float YellowKingStatMultiplier;
 
-    [SerializeField] private float GreenDamageStatMultiplier;
-    [SerializeField] private float GreenMaxHPStatMultiplier;
-    [SerializeField] private int GreenSpawnLvStat;
-    [SerializeField] private float GreenElderStatMultiplier;
-    [SerializeField] private float GreenShinyStatMultiplier;
-    [SerializeField] private float GreenKingStatMultiplier;
+    [SerializeField] public float GreenDamageStatMultiplier;
+    [SerializeField] public float GreenMaxHPStatMultiplier;
+    [SerializeField] public int GreenSpawnLvStat;
+    [SerializeField] public float GreenElderStatMultiplier;
+    [SerializeField] public float GreenShinyStatMultiplier;
+    [SerializeField] public float GreenKingStatMultiplier;
 
-    [SerializeField] private float PurpleDamageStatMultiplier;
-    [SerializeField] private float PurpleMaxHPStatMultiplier;
-    [SerializeField] private int PurpleSpawnLvStat;
-    [SerializeField] private float PurpleElderStatMultiplier;
-    [SerializeField] private float PurpleShinyStatMultiplier;
-    [SerializeField] private float PurpleKingStatMultiplier;
+    [SerializeField] public float PurpleDamageStatMultiplier;
+    [SerializeField] public float PurpleMaxHPStatMultiplier;
+    [SerializeField] public int PurpleSpawnLvStat;
+    [SerializeField] public float PurpleElderStatMultiplier;
+    [SerializeField] public float PurpleShinyStatMultiplier;
+    [SerializeField] public float PurpleKingStatMultiplier;
 
-    [SerializeField] private float RedDamageStatMultiplier;
-    [SerializeField] private float RedMaxHPStatMultiplier;
-    [SerializeField] private int RedSpawnLvStat;
-    [SerializeField] private float RedElderStatMultiplier;
-    [SerializeField] private float RedShinyStatMultiplier;
-    [SerializeField] private float RedKingStatMultiplier;
+    [SerializeField] public float RedDamageStatMultiplier;
+    [SerializeField] public float RedMaxHPStatMultiplier;
+    [SerializeField] public int RedSpawnLvStat;
+    [SerializeField] public float RedElderStatMultiplier;
+    [SerializeField] public float RedShinyStatMultiplier;
+    [SerializeField] public float RedKingStatMultiplier;
 
-    [SerializeField] private float OrangeDamageStatMultiplier;
-    [SerializeField] private float OrangeMaxHPStatMultiplier;
-    [SerializeField] private int OrangeSpawnLvStat;
-    [SerializeField] private float OrangeElderStatMultiplier;
-    [SerializeField] private float OrangeShinyStatMultiplier;
-    [SerializeField] private float OrangeKingStatMultiplier;
+    [SerializeField] public float OrangeDamageStatMultiplier;
+    [SerializeField] public float OrangeMaxHPStatMultiplier;
+    [SerializeField] public int OrangeSpawnLvStat;
+    [SerializeField] public float OrangeElderStatMultiplier;
+    [SerializeField] public float OrangeShinyStatMultiplier;
+    [SerializeField] public float OrangeKingStatMultiplier;
 
     // Debug Variables
     [SerializeField] private bool FixedUpdateScaleAnimation;
@@ -180,6 +182,11 @@ public class EntityManager : MonoBehaviour
 
     // Macro Logic
     #region MacroLogic
+
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         LogicUpdateTimerThreshold = 1f / LogicTickRate;

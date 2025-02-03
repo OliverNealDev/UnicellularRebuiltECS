@@ -68,6 +68,7 @@ public class BiolabMenuManager : MonoBehaviour
     public bool isBioShinyUnlocked;
     public bool isBioKingUnlocked;
     //
+    
 
 
     // Enums
@@ -88,7 +89,7 @@ public class BiolabMenuManager : MonoBehaviour
     [SerializeField] private PurchasePanelManager purchasePanelManager;
     //
 
-    void Start()
+    void Awake()
     {
         LogicTimerThreshold = 0.05f;
 
@@ -188,6 +189,65 @@ public class BiolabMenuManager : MonoBehaviour
 
         UpdateInfoPanel();
     }
+    
+    // --- Setter: Set all unlocked states at once (for example, from your saved data) ---
+    public void SetUnlockedStates(
+        bool damageUnlocked, 
+        bool maxHealthUnlocked, 
+        bool spawnLevelUnlocked, 
+        bool elderUnlocked, 
+        bool shinyUnlocked, 
+        bool kingUnlocked)
+    {
+        isBioDamageUnlocked = damageUnlocked;
+        if (damageUnlocked)
+        {
+            SelectDamageMultiplierButton.interactable = false;
+        }
+        isBioMaxHealthUnlocked = maxHealthUnlocked;
+        if (maxHealthUnlocked)
+        {
+            SelectMaxHealthMultiplierButton.interactable = false;
+        }
+        isBioSpawnLevelUnlocked = spawnLevelUnlocked;
+        if (spawnLevelUnlocked)
+        {
+            SelectSpawnLevelIncrementerEvo.interactable = false;
+        }
+        isBioElderUnlocked = elderUnlocked;
+        if (elderUnlocked)
+        {
+            SelectElderMultiplierButton.interactable = false;
+        }
+        isBioShinyUnlocked = shinyUnlocked;
+        if (shinyUnlocked)
+        {
+            SelectShinyMultiplierButton.interactable = false;
+        }
+        isBioKingUnlocked = kingUnlocked;
+        if (kingUnlocked)
+        {
+            SelectKingMultiplierButton.interactable = false;
+        }
+    }
+
+    public void ResetUnlocks()
+    {
+        isBioDamageUnlocked = false;
+        isBioMaxHealthUnlocked = false;
+        isBioSpawnLevelUnlocked = false;
+        isBioElderUnlocked = false;
+        isBioShinyUnlocked = false;
+        isBioKingUnlocked = false;
+    }
+    
+    // --- Getters: Returns whether each upgrade is unlocked ---
+    public bool IsBioDamageUnlocked() { return isBioDamageUnlocked; }
+    public bool IsBioMaxHealthUnlocked() { return isBioMaxHealthUnlocked; }
+    public bool IsBioSpawnLevelUnlocked() { return isBioSpawnLevelUnlocked; }
+    public bool IsBioElderUnlocked() { return isBioElderUnlocked; }
+    public bool IsBioShinyUnlocked() { return isBioShinyUnlocked; }
+    public bool IsBioKingUnlocked() { return isBioKingUnlocked; }
 
     public void OnBioLabButtonClicked()
     {
