@@ -78,7 +78,7 @@ public class PurchasePanelManager : MonoBehaviour
         LogicTimer = 0;
         LogicTimerThreshold = 0.05f;
         PurchaseAllTimer = 0;
-        PurchaseAllTimerThreshold = 0.01f;
+        PurchaseAllTimerThreshold = 0.2f;
 
         PurchasePanel.SetActive(false);
 
@@ -249,7 +249,7 @@ public class PurchasePanelManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PurchaseAllTimer = 0;
+            PurchaseAllTimer = -0.5f;
 
             PurchaseAllTimer -= PurchaseAllTimerThreshold;
             OnBlueUnicellPurchaseButtonClicked();
