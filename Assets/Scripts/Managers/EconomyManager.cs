@@ -94,6 +94,7 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private PurchasePanelManager purchasePanelManager;
     [SerializeField] private UpgradeMenuManager upgradeMenuManager;
     [SerializeField] private BiolabMenuManager biolabMenuManager;
+    [SerializeField] private InfoPanelManager infoPanelManager;
 
     void Start()
     {
@@ -470,6 +471,7 @@ public class EconomyManager : MonoBehaviour
             Debug.Log("Loaded Economy Data from: " + path);
             // You can update any UI elements here if necessary.
             TextManager.Instance.UpdateSoulText(BlueSouls, PinkSouls);
+            infoPanelManager.OnCloseInfoPanel();
         }
         else
         {

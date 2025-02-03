@@ -50,9 +50,9 @@ public class PostProcessingManager : MonoBehaviour
         float t = timer / colorCycleDuration;
 
         // Calculate the RGB values with a minimum value of 0.9
-        float r = 0.9f + 0.1f * Mathf.Sin(2 * Mathf.PI * t + 0);
-        float g = 0.9f + 0.1f * Mathf.Sin(2 * Mathf.PI * t + 2 * Mathf.PI / 3);
-        float b = 0.9f + 0.1f * Mathf.Sin(2 * Mathf.PI * t + 4 * Mathf.PI / 3);
+        float r = 0.8f + 0.2f * Mathf.Sin(2 * Mathf.PI * t + 0);
+        float g = 0.8f + 0.2f * Mathf.Sin(2 * Mathf.PI * t + 2 * Mathf.PI / 3);
+        float b = 0.8f + 0.2f * Mathf.Sin(2 * Mathf.PI * t + 4 * Mathf.PI / 3);
 
         // Set the Bloom tint color
         bloom.tint.value = new Color(r, g, b);
@@ -67,13 +67,13 @@ public class PostProcessingManager : MonoBehaviour
         }
 
         // Set the Bloom intensity
-        if (intensity < 1.5f)
+        if (intensity < 2f)
         {
             bloom.intensity.value = intensity;
         }
-        else if (intensity != 1.5f)
+        else if (intensity != 2f)
         {
-            bloom.intensity.value = 1.5f;
+            bloom.intensity.value = 2f;
         }
 
         // Log the final intensity value being set
