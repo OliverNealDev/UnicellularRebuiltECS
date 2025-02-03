@@ -99,7 +99,7 @@ public class EconomyManager : MonoBehaviour
     void Start()
     {
         // Example starting values
-        UniCoins = 2000000000000000000;
+        UniCoins = 89;
         BlueSouls = PinkSouls = YellowSouls = GreenSouls = PurpleSouls = RedSouls = OrangeSouls = 0;
         UnlockNewUnicellCost = 10;
         UnlockOrangeUnicellCost = 10000;
